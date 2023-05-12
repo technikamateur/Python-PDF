@@ -10,7 +10,10 @@ with open("test.json", "rt") as json_file:
 print(data.keys())
 environment = Environment(loader=FileSystemLoader("templates/"))
 template = environment.get_template("example.tex")
-content = template.render(data["General Information"])
+
+lol = data["General Information"]
+lol.update(data["Commits"][0])
+content = template.render(lol)
 
 with open ("out.tex", "wt") as out_file:
     out_file.write(content)

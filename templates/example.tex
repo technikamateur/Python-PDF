@@ -8,6 +8,12 @@
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
+% for the underscore
+\usepackage[T1]{fontenc}
+
+% break long words
+
+
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -15,15 +21,16 @@
 
 \title{Code Report}
 
+
 \begin{document}
 \maketitle
+This report has been auto generated.\bigskip
 
-\section{General Information}
-This report has been auto generated.\newline
+\section{Compiler Information}
 \begin{itemize}
-    \item Used compiler: {{compiler}}
-    \item UDE version: {{ude}}
-    \item Repository name: {{repo}}
+    {% for key, value in compiler.items() %}
+    \item {{key}}: {{value}}
+    {% endfor %}
 \end{itemize}
 
 \section{Commits}

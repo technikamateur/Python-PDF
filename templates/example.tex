@@ -20,6 +20,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Code Report}
+\date{ {{ date }} }
 
 
 \begin{document}
@@ -32,6 +33,19 @@ This report has been auto generated.\bigskip
     \item {{key}}: {{value}}
     {% endfor %}
 \end{itemize}
+
+\section{Repository Information}
+Repository Name: {{repo.get("Repository name")}}\\
+Repository Path: {{repo.get("Repository directory")}}\bigskip \\
+\begin{tabular}{ |c|c|c| }
+    \hline
+    Commit date & Commit message \\
+    \hline \hline
+    {% for key, value in commits.items() %}
+    {{value[1]}} & {{value[0]}} \\
+    {% endfor %}
+    \hline
+\end{tabular}
 
 \section{Commits}
 \subsection{Commit Label - not in json}

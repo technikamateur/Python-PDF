@@ -35,12 +35,12 @@ This report has been auto generated.\bigskip
 \section{Repository Information}
 Repository Name: {{repo.get("Repository name")}}\\
 Repository Path: {{repo.get("Repository directory")}}\bigskip \\
-\begin{tabular}{ |c|c| }
+\begin{tabular}{ |l|l| }
     \hline
     Commit date & Commit message \\
     \hline \hline
     {% for key, value in commits.items() %}
-    {{value[1]}} & {{value[0]}} \\
+    {{value[1]}} & {{value[0]}}\\
     {% endfor %}
     \hline
 \end{tabular}
@@ -53,7 +53,7 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
         {% set distances = value.get("distances to golden algorithm") %}
         {% set tf = value.get("equal to golden algorithm") %}
         {% set sig = value.get("signal types") %}
-        \begin{tabular}{ |c|c|c| }
+        \begin{tabular}{ |l|l|l| }
             \hline
             Signal & Passed & Distance to golden algorithm \\
             \hline \hline

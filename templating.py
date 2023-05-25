@@ -5,14 +5,22 @@ from jinja2 import Environment, FileSystemLoader
 import sys
 import argparse
 from collections import defaultdict
+from pathlib import Path
+
+import subprocess
 
 
-def merge_dicts(d1: dict, d2: dict, d3: dict) -> dict:
+def _merge_dicts(d1: dict, d2: dict, d3: dict) -> dict:
     dd = defaultdict(list)
     for d in (d1, d2, d3):  # you can list as many input dicts as you want here
         for key, value in d.items():
             dd[key].append(value)
     return dd
+
+
+def _generate_pdf() -> None:
+    subprocess.run(["pdflatex", "out.tex"])
+    return
 
 
 def main():
@@ -22,6 +30,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', required=False, help='Select input file.')
+    parser.add_argument('--pdf', action='store_true', help='Generate pdf after parsing.')
     args = parser.parse_args()
     default_input = "report.json"
 
@@ -47,18 +56,31 @@ def main():
     print(f"Keys: {data.keys()}")
     environment = Environment(loader=FileSystemLoader("templates/"))
     template = environment.get_template("example.tex")
+    environment.globals.update(zip=zip)
 
+    # compiler infos
     compiler = data.get("COMPILER INFORMATION")
+
+    # repo infos
     date = data.get("REPORT INITIALIZATION DATE")
     repo = data.get("REPOSITORY INFORMATION")
     commitsmsg = repo.get("Commits").get("commit messages")
     commitsdate = repo.get("Commits").get("commit dates")
     commitsbranches = repo.get("Commits").get("commit branches")
-    commits = merge_dicts(commitsmsg, commitsdate, commitsbranches)
-    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo)
+    commits = _merge_dicts(commitsmsg, commitsdate, commitsbranches)
+
+    # validation tests
+    validation = data.get("TEST RESULTS").get("Validation")
+
+    # render template
+    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation)
 
     with open("out.tex", "wt") as out_file:
         out_file.write(content)
+
+    if args.pdf and Path("out.tex").is_file():
+        print("Generating your pdf as requested.")
+        _generate_pdf()
 
 
 if __name__ == "__main__":

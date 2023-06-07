@@ -1,0 +1,3 @@
+import templating
+
+templating.pdf()

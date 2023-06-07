@@ -3,7 +3,6 @@
 import json
 from jinja2 import Environment, FileSystemLoader
 import sys
-import argparse
 from collections import defaultdict
 from pathlib import Path
 
@@ -23,27 +22,17 @@ def _generate_pdf() -> None:
     return
 
 
-def main():
+def pdf():
     MIN_PYTHON = (3, 6)  # This is for format strings
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input', required=False, help='Select input file.')
-    parser.add_argument('--pdf', action='store_true', help='Generate pdf after parsing.')
-    args = parser.parse_args()
-    default_input = "report.json"
-
-    if args.input:
-        in_file = args.input
-    else:
-        in_file = default_input
     try:
-        with open(in_file, "rt") as json_file:
+        with open("report.json", "rt") as json_file:
             data = json_file.read()
             # data = json.load(json_file)
     except FileNotFoundError:
-        sys.exit(f"{in_file} not found. Hint: You can specify a file manually with \'-i filename\'.")
+        sys.exit("report.json not found. Hint: You can specify a file manually with \'-i filename\'.")
 
     # parsing backslashs and underscores
     data = data.replace("\\", "\\\\textbackslash ")
@@ -78,10 +67,10 @@ def main():
     with open("out.tex", "wt") as out_file:
         out_file.write(content)
 
-    if args.pdf and Path("out.tex").is_file():
+    if Path("out.tex").is_file():
         print("Generating your pdf as requested.")
         _generate_pdf()
 
 
 if __name__ == "__main__":
-    main()
+    pdf()

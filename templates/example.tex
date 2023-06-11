@@ -17,6 +17,10 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
+% plots
+\usepackage{pgfplots}
+\usepackage{float}
+
 \title{Code Report}
 \date{ {{ date }} }
 
@@ -44,6 +48,8 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
     {% endfor %}
     \hline
 \end{tabular}
+
+\resizebox{\textwidth}{!}{\input{ {{repo_graph}} }}
 
 \section{Test Results}
     \subsection{Validation}

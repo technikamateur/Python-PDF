@@ -9,9 +9,9 @@ from pathlib import Path
 import subprocess
 
 
-def _merge_dicts(d1: dict, d2: dict, d3: dict) -> dict:
+def _merge_dicts(*args: dict) -> dict:
     dd = defaultdict(list)
-    for d in (d1, d2, d3):  # you can list as many input dicts as you want here
+    for d in (args):  # you can list as many input dicts as you want here
         for key, value in d.items():
             dd[key].append(value)
     return dd
@@ -21,8 +21,13 @@ def _generate_pdf() -> None:
     subprocess.run(["pdflatex", "out.tex"])
     return
 
+def _get_plot(plot: str, input: Path) -> Path:
+    plot = plot.split("/")[0]
+    plot = plot.rsplit("\\", 1)[1]
+    plot = plot.replace(".png", ".pgf")
+    return input / plot
 
-def _jinja_magic(data: dict) -> None:
+def _jinja_magic(input: Path, data: dict, path_data: dict) -> None:
     environment = Environment(loader=FileSystemLoader("templates/"))
     template = environment.get_template("example.tex")
     environment.globals.update(zip=zip)
@@ -33,16 +38,17 @@ def _jinja_magic(data: dict) -> None:
     # repo infos
     date = data.get("REPORT INITIALIZATION DATE")
     repo = data.get("REPOSITORY INFORMATION")
+    ## commit table
     commitsmsg = repo.get("Commits").get("commit messages")
     commitsdate = repo.get("Commits").get("commit dates")
     commitsbranches = repo.get("Commits").get("commit branches")
     commits = _merge_dicts(commitsmsg, commitsdate, commitsbranches)
-
+    repo_graph = _get_plot(path_data.get("REPOSITORY INFORMATION").get("Repository graph"), input)
     # validation tests
     validation = data.get("TEST RESULTS").get("Validation")
 
     # render template
-    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation)
+    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation, repo_graph=repo_graph)
 
     # write to file
     with open("out.tex", "wt") as out_file:
@@ -50,18 +56,23 @@ def _jinja_magic(data: dict) -> None:
     return
 
 
-def pdf(input: Path = Path("report.json")):
+def pdf(input: Path = Path("report")):
     MIN_PYTHON = (3, 6)  # This is for format strings
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
+    report_file = input / "report.json"
+
     try:
-        with input.open("rt") as json_file:
+        print(f"{input.parent.resolve()}")
+        with report_file.open("rt") as json_file:
             data = json_file.read()
             # data = json.load(json_file)
     except FileNotFoundError:
         sys.exit(f"{input} not found.")
 
+    # create a copy for the paths - not very elegant
+    path_data = json.loads(data)
     # parsing backslashs and underscores
     data = data.replace("\\", "\\\\textbackslash ")
     data = data.replace("_", "\\\\_")
@@ -70,9 +81,10 @@ def pdf(input: Path = Path("report.json")):
     if data.get("CRITICAL ERRORS"):
         sys.exit(f"There were some critical errors. Therefore I\'m not able to generate the report.")
 
+    # TODO: logging
     print(f"Keys: {data.keys()}")
 
-    _jinja_magic(data)
+    _jinja_magic(input, data, path_data)
 
     if Path("out.tex").is_file():
         print("Generating your pdf as requested.")

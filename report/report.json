@@ -1,0 +1,289 @@
+{
+  "CRITICAL ERRORS": {},
+  "REPORT INITIALIZATION DATE": "2023-05-26_14-52-30.27",
+  "SAVE DATA": [
+    "2023-05-26_14-52-38.63",
+    "2023-05-26_14-53-14.41",
+    "2023-05-26_14-53-41.41",
+    "2023-05-26_14-54-03.32",
+    "2023-05-26_14-54-19.24",
+    "2023-05-26_14-54-19.24"
+  ],
+  "REPOSITORY INFORMATION": {
+    "Repository name": "CIESHW_SHOW_CASE_5",
+    "Repository directory": "C:\\Users\\ilkay\\Documents\\S32workspaces",
+    "Checkout history": {
+      "2023-05-26_14-52-38.72": [
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089",
+        "merge_request authorised\n"
+      ],
+      "2023-05-26_14-53-14.51": [
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b",
+        "changed cosineSignal back to random signal\n"
+      ],
+      "2023-05-26_14-53-41.50": [
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089",
+        "merge_request authorised\n"
+      ],
+      "2023-05-26_14-54-03.43": [
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b",
+        "changed cosineSignal back to random signal\n"
+      ]
+    },
+    "Commits": {
+      "commit messages": {
+        "95e812414bb08db7f010016a98bb3b843bf19301": "Initial commit",
+        "e4d5019c1dde67a2100e5ff32d446bf33653014a": "added gitignore",
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": "merge_request authorised",
+        "2fa836340c5d9b6c074cd9e6b8489b79aab02e2e": "removed old commented DFTs and definened new data type cplx",
+        "f944f19652ec6fc38334d64ec737ef7be434b4da": "added core functionality of Fast Fourier Transformation",
+        "4148b7e92aa4d3f6489c4ed4df3d5d948201aeee": "finished implementation on FFT, changed DFT to FFT in main",
+        "e0aae527c6ff129803e76fb7bb69ef101141dfd5": "corrections in FFT core function and FFT wrapper",
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b": "changed cosineSignal back to random signal"
+      },
+      "commit dates": {
+        "95e812414bb08db7f010016a98bb3b843bf19301": "2023-04-05-16-10",
+        "e4d5019c1dde67a2100e5ff32d446bf33653014a": "2023-04-05-16-11",
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": "2023-04-05-16-15",
+        "2fa836340c5d9b6c074cd9e6b8489b79aab02e2e": "2023-04-05-16-20",
+        "f944f19652ec6fc38334d64ec737ef7be434b4da": "2023-04-05-16-21",
+        "4148b7e92aa4d3f6489c4ed4df3d5d948201aeee": "2023-04-05-16-22",
+        "e0aae527c6ff129803e76fb7bb69ef101141dfd5": "2023-04-05-16-35",
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b": "2023-04-05-16-36"
+      },
+      "commit branches": {
+        "95e812414bb08db7f010016a98bb3b843bf19301": [
+          "origin/master",
+          "origin/shk_developement_branch"
+        ],
+        "e4d5019c1dde67a2100e5ff32d446bf33653014a": [
+          "origin/master",
+          "origin/shk_developement_branch"
+        ],
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": [
+          "origin/master",
+          "origin/shk_developement_branch"
+        ],
+        "2fa836340c5d9b6c074cd9e6b8489b79aab02e2e": [
+          "origin/shk_developement_branch"
+        ],
+        "f944f19652ec6fc38334d64ec737ef7be434b4da": [
+          "origin/shk_developement_branch"
+        ],
+        "4148b7e92aa4d3f6489c4ed4df3d5d948201aeee": [
+          "origin/shk_developement_branch"
+        ],
+        "e0aae527c6ff129803e76fb7bb69ef101141dfd5": [
+          "origin/shk_developement_branch"
+        ],
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b": [
+          "origin/shk_developement_branch"
+        ]
+      },
+      "branches": [
+        "origin/master",
+        "origin/shk_developement_branch"
+      ]
+    },
+    "Repository graph": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\\\CI_runs\\2023-05-26_14-52-30.27\\\\repository_visualization.png/.pgf",
+    "Tags": {
+      "all": [
+        "merge_request",
+        "rejected",
+        "v1.3"
+      ],
+      "releases": {
+        "v1.3": "04fe9aafc2f231a57c4b7a3702a06ed6baad5089"
+      },
+      "requests": {
+        "merge_request": "ef6a942fceab92bf5ed46f048222a5ec088fd14b"
+      },
+      "other tags": {
+        "rejected": "4148b7e92aa4d3f6489c4ed4df3d5d948201aeee"
+      },
+      "commits with tag": {
+        "95e812414bb08db7f010016a98bb3b843bf19301": "",
+        "e4d5019c1dde67a2100e5ff32d446bf33653014a": "",
+        "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": "v1.3",
+        "2fa836340c5d9b6c074cd9e6b8489b79aab02e2e": "",
+        "f944f19652ec6fc38334d64ec737ef7be434b4da": "",
+        "4148b7e92aa4d3f6489c4ed4df3d5d948201aeee": "rejected",
+        "e0aae527c6ff129803e76fb7bb69ef101141dfd5": "",
+        "ef6a942fceab92bf5ed46f048222a5ec088fd14b": "merge_request"
+      }
+    }
+  },
+  "COMPILER INFORMATION": {
+    "Build command file": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\\\build\\build_CIESHW_SHOW_CASE_5.cmd",
+    "Output file": "C:\\Users\\ilkay\\Documents\\S32workspaces\\CIESHW_SHOW_CASE_5\\Debug_FLASH\\CIESHW_SHOW_CASE_5.elf",
+    "Compilation history": {
+      "2023-05-26_14-52-41.74": "TODO: something meaningful.",
+      "2023-05-26_14-53-15.98": "TODO: something meaningful.",
+      "2023-05-26_14-53-42.90": "TODO: something meaningful.",
+      "2023-05-26_14-54-04.86": "TODO: something meaningful."
+    }
+  },
+  "UDE INTERFACE INFORMATION": {
+    "UDE workspace name": "CIESHW_SHOW_CASE_5_2023-05-26_14-52-30.42.wsx",
+    "UDE workspace location": "C:\\Users\\ilkay\\Documents\\pls\\UDE 2022\\Workspaces",
+    "Target config file": "C:\\Users\\ilkay\\Documents\\pls\\UDE 2022\\Targets\\nxp_s32k3x4evb-q172_s32k344_debug_swd.cfg",
+    "Trace config file": "C:\\Users\\ilkay\\Documents\\pls\\UDE 2022\\Workspaces\\DFT_16MB_TriggerMid.cfx"
+  },
+  "TEST RESULTS": {
+    "Initialization": {
+      "2023-05-26_14-52-38.63": {
+        "repository analysis": true,
+        "tag search": true,
+        "UDE start": true,
+        "time measurement enabling": true,
+        "trace config load": true
+      }
+    },
+    "Validation": {
+      "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": {
+        "commit message": "merge_request authorised",
+        "commit date": "2023-04-05-16-15",
+        "commit tag": "v1.3",
+        "date": "2023-05-26_14-52-38.63",
+        "iteration": 5,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "validation test passed": true,
+        "error type": "deviation from golden algorithm",
+        "validation plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-05-26_14-52-30.27\\validation_results_v1.3_merge_request authorised.png/.pgf",
+        "equal to golden algorithm": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "distances to golden algorithm": [
+          0,
+          4.0959680092100825e-11,
+          1.091026158306363e-10,
+          2.107158891817562e-10,
+          8.034506393528318e-11
+        ],
+        "signal types": [
+          "impulse",
+          "randomNormal",
+          "cos",
+          "cos",
+          "cos"
+        ]
+      },
+      "ef6a942fceab92bf5ed46f048222a5ec088fd14b": {
+        "commit message": "changed cosineSignal back to random signal",
+        "commit date": "2023-04-05-16-36",
+        "commit tag": "merge_request",
+        "date": "2023-05-26_14-53-14.41",
+        "iteration": 5,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "validation test passed": true,
+        "error type": "deviation from golden algorithm",
+        "validation plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-05-26_14-52-30.27\\validation_results_merge_request_changed cosineSignal back to random signal.png/.pgf",
+        "equal to golden algorithm": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "distances to golden algorithm": [
+          0,
+          3.3306690738754696e-16,
+          2.220446049250313e-15,
+          8.881784197001252e-15,
+          3.9968028886505635e-15
+        ],
+        "signal types": [
+          "impulse",
+          "randomNormal",
+          "cos",
+          "cos",
+          "cos"
+        ]
+      }
+    },
+    "Timing": {
+      "04fe9aafc2f231a57c4b7a3702a06ed6baad5089": {
+        "commit message": "merge_request authorised",
+        "commit date": "2023-04-05-16-15",
+        "commit tag": "v1.3",
+        "date": "2023-05-26_14-53-41.41",
+        "iteration": 5,
+        "maximum excecution time": Infinity,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "timing test passed": true,
+        "error type": "at least one T_i>T_max",
+        "timing plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-05-26_14-52-30.27\\timing_results_v1.3_merge_request authorised.png/.pgf",
+        "mean of excecution time": 1.3701681333333333,
+        "standard deviation of excecution time": 0.009781045596405196,
+        "single iteration excecution times": [
+          1.3507130833333334,
+          1.3730600625,
+          1.3756930625,
+          1.3755523958333333,
+          1.3758220625
+        ],
+        "signal types": [
+          "impulse",
+          "randomNormal",
+          "cos",
+          "cos",
+          "cos"
+        ]
+      },
+      "ef6a942fceab92bf5ed46f048222a5ec088fd14b": {
+        "commit message": "changed cosineSignal back to random signal",
+        "commit date": "2023-04-05-16-36",
+        "commit tag": "merge_request",
+        "date": "2023-05-26_14-54-03.32",
+        "iteration": 5,
+        "maximum excecution time": 1.3701681333333333,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "timing test passed": true,
+        "error type": "at least one T_i>T_max",
+        "timing plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-05-26_14-52-30.27\\timing_results_merge_request_changed cosineSignal back to random signal.png/.pgf",
+        "mean of excecution time": 0.031033833333333333,
+        "standard deviation of excecution time": 0.0009462682577498827,
+        "single iteration excecution times": [
+          0.029142395833333334,
+          0.03144658333333333,
+          0.03151939583333333,
+          0.03151814583333333,
+          0.031542645833333334
+        ],
+        "signal types": [
+          "impulse",
+          "randomNormal",
+          "cos",
+          "cos",
+          "cos"
+        ]
+      }
+    },
+    "Traced Validation": {},
+    "Traced Timing": {}
+  }
+}

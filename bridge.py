@@ -1,4 +1,4 @@
-import templating
+from cieshw_pdf import templating
 
 templating.pdf()
 

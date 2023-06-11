@@ -12,5 +12,5 @@ setup(
     # adding packages
     packages=find_packages('src'),
     package_dir ={'':'src'},
-    package_data={'static': ['*'],},
+    package_data={'': ['static/*'],},
 )

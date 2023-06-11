@@ -20,6 +20,7 @@
 % plots
 \usepackage{pgfplots}
 \usepackage{float}
+\pgfplotsset{compat=1.18}
 
 \title{Code Report}
 \date{ {{ date }} }
@@ -55,7 +56,7 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
     \subsection{Validation}
     {% for key, value in validation.items() %}
         \subsubsection{ {{ key }} }
-        This commit was created on {{value.get("commit date")}} with message\textit{ {{value.get("commit message")}} }.
+        This commit was created on {{value.get("commit date")}} with message\textit{ {{value.get("commit message")}} }
         {% set distances = value.get("distances to golden algorithm") %}
         {% set tf = value.get("equal to golden algorithm") %}
         {% set sig = value.get("signal types") %}
@@ -68,5 +69,7 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
             {% endfor %}
             \hline
         \end{tabular}
+        
+        \resizebox{\textwidth}{!}{\input{ {{format_path(value.get("validation plot"), input)}} }}
     {% endfor %}
 \end{document}

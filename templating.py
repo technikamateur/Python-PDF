@@ -23,14 +23,16 @@ def _generate_pdf() -> None:
 
 def _get_plot(plot: str, input: Path) -> Path:
     plot = plot.split("/")[0]
-    plot = plot.rsplit("\\", 1)[1]
+    plot = plot.rsplit("\\textbackslash ", 1)[1]
+    plot = plot.replace("\\_", "_")
     plot = plot.replace(".png", ".pgf")
     return input / plot
 
-def _jinja_magic(input: Path, data: dict, path_data: dict) -> None:
+def _jinja_magic(input: Path, data: dict) -> None:
     environment = Environment(loader=FileSystemLoader("templates/"))
     template = environment.get_template("example.tex")
     environment.globals.update(zip=zip)
+    environment.globals.update(format_path=_get_plot)
 
     # compiler infos
     compiler = data.get("COMPILER INFORMATION")
@@ -43,12 +45,12 @@ def _jinja_magic(input: Path, data: dict, path_data: dict) -> None:
     commitsdate = repo.get("Commits").get("commit dates")
     commitsbranches = repo.get("Commits").get("commit branches")
     commits = _merge_dicts(commitsmsg, commitsdate, commitsbranches)
-    repo_graph = _get_plot(path_data.get("REPOSITORY INFORMATION").get("Repository graph"), input)
+    repo_graph = _get_plot(data.get("REPOSITORY INFORMATION").get("Repository graph"), input)
     # validation tests
     validation = data.get("TEST RESULTS").get("Validation")
 
     # render template
-    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation, repo_graph=repo_graph)
+    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation, repo_graph=repo_graph, input=input)
 
     # write to file
     with open("out.tex", "wt") as out_file:
@@ -71,10 +73,8 @@ def pdf(input: Path = Path("report")):
     except FileNotFoundError:
         sys.exit(f"{input} not found.")
 
-    # create a copy for the paths - not very elegant
-    path_data = json.loads(data)
     # parsing backslashs and underscores
-    data = data.replace("\\", "\\\\textbackslash ")
+    data = data.replace("\\\\", "\\\\textbackslash ")
     data = data.replace("_", "\\\\_")
     data = json.loads(data)
     # stop if critical errors is not empty
@@ -84,7 +84,7 @@ def pdf(input: Path = Path("report")):
     # TODO: logging
     print(f"Keys: {data.keys()}")
 
-    _jinja_magic(input, data, path_data)
+    _jinja_magic(input, data)
 
     if Path("out.tex").is_file():
         print("Generating your pdf as requested.")

@@ -164,4 +164,4 @@ cython_debug/
 *.aux
 *.out
 *.pdf
-out.tex
+*.tex

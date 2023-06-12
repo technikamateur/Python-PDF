@@ -8,6 +8,18 @@ from pathlib import Path
 
 import subprocess
 
+import importlib.resources as pkg_resources
+from . import static
+
+try:
+    inp_file = (pkg_resources.files(static) / 'example.tex')
+    with inp_file.open("rt") as f:  # or "rt" as text file with universal newlines
+        template = f.read()
+except AttributeError:
+    # Python < PY3.9, fall back to method deprecated in PY3.11.
+    template = pkg_resources.read_text(static, 'example.tex')
+    print("WARNING: Your are using Python <3.9. Fall back to method deprecated in PY3.11")
+
 
 def _merge_dicts(*args: dict) -> dict:
     dd = defaultdict(list)
@@ -29,8 +41,9 @@ def _get_plot(plot: str, input: Path) -> Path:
     return input / plot
 
 def _jinja_magic(input: Path, data: dict) -> None:
-    environment = Environment(loader=FileSystemLoader("templates/"))
-    template = environment.get_template("example.tex")
+    global template
+    environment = Environment()
+    template = environment.from_string(template)
     environment.globals.update(zip=zip)
     environment.globals.update(format_path=_get_plot)
 
@@ -59,7 +72,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
 
 
 def pdf(input: Path = Path("report")):
-    MIN_PYTHON = (3, 6)  # This is for format strings
+    MIN_PYTHON = (3, 7)  # 3.6 for format strings, 3.7 pkg_resources
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 

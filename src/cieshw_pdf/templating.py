@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+import logging
 from jinja2 import Environment, FileSystemLoader
 import sys
 from collections import defaultdict
@@ -11,6 +12,10 @@ import subprocess
 import importlib.resources as pkg_resources
 from . import static
 
+FORMAT = '%(name)s: %(levelname)s: %(message)s'
+logger = logging.getLogger(__name__)
+logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+
 try:
     inp_file = (pkg_resources.files(static) / 'example.tex')
     with inp_file.open("rt") as f:  # or "rt" as text file with universal newlines
@@ -18,7 +23,7 @@ try:
 except AttributeError:
     # Python < PY3.9, fall back to method deprecated in PY3.11.
     template = pkg_resources.read_text(static, 'example.tex')
-    print("WARNING: Your are using Python <3.9. Fall back to method deprecated in PY3.11")
+    logger.warning("Your are using Python <3.9. Using fallback.")
 
 
 def _merge_dicts(*args: dict) -> dict:
@@ -33,12 +38,14 @@ def _generate_pdf() -> None:
     subprocess.run(["pdflatex", "out.tex"])
     return
 
+
 def _get_plot(plot: str, input: Path) -> Path:
     plot = plot.split("/")[0]
     plot = plot.rsplit("\\textbackslash ", 1)[1]
     plot = plot.replace("\\_", "_")
     plot = plot.replace(".png", ".pgf")
     return input / plot
+
 
 def _jinja_magic(input: Path, data: dict) -> None:
     global template
@@ -53,7 +60,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
     # repo infos
     date = data.get("REPORT INITIALIZATION DATE")
     repo = data.get("REPOSITORY INFORMATION")
-    ## commit table
+    # commit table
     commitsmsg = repo.get("Commits").get("commit messages")
     commitsdate = repo.get("Commits").get("commit dates")
     commitsbranches = repo.get("Commits").get("commit branches")
@@ -74,7 +81,8 @@ def _jinja_magic(input: Path, data: dict) -> None:
 def pdf(input: Path = Path("report")):
     MIN_PYTHON = (3, 7)  # 3.6 for format strings, 3.7 pkg_resources
     if sys.version_info < MIN_PYTHON:
-        sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
+        logger.critical("Python %s.%s or later is required.\n" % MIN_PYTHON)
+        return
 
     report_file = input / "report.json"
 
@@ -84,7 +92,8 @@ def pdf(input: Path = Path("report")):
             data = json_file.read()
             # data = json.load(json_file)
     except FileNotFoundError:
-        sys.exit(f"{input} not found.")
+        logger.critical(f"{input} not found.")
+        return
 
     # parsing backslashs and underscores
     data = data.replace("\\\\", "\\\\textbackslash ")
@@ -92,15 +101,16 @@ def pdf(input: Path = Path("report")):
     data = json.loads(data)
     # stop if critical errors is not empty
     if data.get("CRITICAL ERRORS"):
-        sys.exit(f"There were some critical errors. Therefore I\'m not able to generate the report.")
+        logger.warning("Critical errors were found:")
+        for key, value in data.get("CRITICAL ERRORS").items():
+            print(f"{key}:{value}")
 
-    # TODO: logging
-    print(f"Keys: {data.keys()}")
+    logger.info(f"Keys: {data.keys()}")
 
     _jinja_magic(input, data)
 
     if Path("out.tex").is_file():
-        print("Generating your pdf as requested.")
+        logger.info("Generating your pdf as requested.")
         _generate_pdf()
 
 

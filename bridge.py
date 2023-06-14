@@ -1,6 +1,7 @@
-from cieshw_pdf import templating
+from src.cieshw_pdf import templating
 
 templating.pdf()
+print("LOL")
 
 '''
 \begin{figure}[H]

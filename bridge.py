@@ -1,7 +1,7 @@
 from src.cieshw_pdf import templating
 
-templating.pdf()
-print("LOL")
+ret = templating.pdf()
+print(f"templating returned: {ret}")
 
 '''
 \begin{figure}[H]

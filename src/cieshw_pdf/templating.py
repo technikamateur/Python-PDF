@@ -5,7 +5,7 @@ import logging
 from jinja2 import Environment, FileSystemLoader
 import sys
 from collections import defaultdict
-from pathlib import Path
+from pathlib import Path, WindowsPath
 
 import subprocess
 
@@ -34,17 +34,30 @@ def _merge_dicts(*args: dict) -> dict:
     return dd
 
 
-def _generate_pdf() -> None:
-    subprocess.run(["pdflatex", "out.tex"])
-    return
+def _generate_pdf() -> int:
+    if Path("out.tex").is_file():
+        try:
+            subprocess.run(["pdflatex", "out.tex"])
+        except FileNotFoundError:
+            logger.error("pdflatex not found. No pdf created.")
+            return 1
+    else:
+        logger.error("Internal error. No tex file found.")
+        return 1
+    return 0
 
 
-def _get_plot(plot: str, input: Path) -> Path:
+def _get_plot(plot: str, input: Path) -> str:
     plot = plot.split("/")[0]
     plot = plot.rsplit("\\textbackslash ", 1)[1]
     plot = plot.replace("\\_", "_")
     plot = plot.replace(".png", ".pgf")
-    return input / plot
+    plot = input / plot
+    str_plot = str(plot)
+    if isinstance(plot, WindowsPath):
+        logger.info("Windows detected. Masking paths.")
+        str_plot = str_plot.replace("\\", "\\\\")
+    return str_plot
 
 
 def _jinja_magic(input: Path, data: dict) -> None:
@@ -78,11 +91,11 @@ def _jinja_magic(input: Path, data: dict) -> None:
     return
 
 
-def pdf(input: Path = Path("report")):
-    MIN_PYTHON = (3, 7)  # 3.6 for format strings, 3.7 pkg_resources
+def pdf(input: Path = Path("report")) -> int:
+    MIN_PYTHON = (3, 7)  # 3.6 for format strings, 3.7 for pkg_resources
     if sys.version_info < MIN_PYTHON:
         logger.critical("Python %s.%s or later is required.\n" % MIN_PYTHON)
-        return
+        return 1
 
     report_file = input / "report.json"
 
@@ -92,8 +105,8 @@ def pdf(input: Path = Path("report")):
             data = json_file.read()
             # data = json.load(json_file)
     except FileNotFoundError:
-        logger.critical(f"{input} not found.")
-        return
+        logger.error(f"{input} not found.")
+        return 1
 
     # parsing backslashs and underscores
     data = data.replace("\\\\", "\\\\textbackslash ")
@@ -109,10 +122,4 @@ def pdf(input: Path = Path("report")):
 
     _jinja_magic(input, data)
 
-    if Path("out.tex").is_file():
-        logger.info("Generating your pdf as requested.")
-        _generate_pdf()
-
-
-if __name__ == "__main__":
-    pdf()
+    return _generate_pdf()

@@ -10,6 +10,8 @@ Usage is pretty simple. Just do the following:
 ```python
 from cieshw_pdf import templating
 
-templating.pdf(Path)
+ret = templating.pdf(Path)
 ```
 The functions expects a python [Path object](https://docs.python.org/3/library/pathlib.html) which points to a folder, which contains a `report.json`. Default is `report` relative to your cwd.
+#### New since v1.2
+`templating.pdf(Path)`returns an integer. The return value is 0 if no error occured.

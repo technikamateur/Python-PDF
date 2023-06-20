@@ -99,14 +99,9 @@ def pdf(input: Path = Path("report")) -> int:
 
     report_file = input / "report.json"
 
-    try:
-        print(f"{input.parent.resolve()}")
-        with report_file.open("rt") as json_file:
-            data = json_file.read()
-            # data = json.load(json_file)
-    except FileNotFoundError:
-        logger.error(f"{input} not found.")
-        return 1
+    with report_file.open("rt") as json_file:
+        data = json_file.read()
+        # data = json.load(json_file)
 
     # parsing backslashs and underscores
     data = data.replace("\\\\", "\\\\textbackslash ")

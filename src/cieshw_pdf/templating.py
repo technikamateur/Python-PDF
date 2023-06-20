@@ -62,7 +62,7 @@ def _get_plot(plot: str, input: Path) -> str:
 
 def _jinja_magic(input: Path, data: dict) -> None:
     global template
-    environment = Environment()
+    environment = Environment(trim_blocks=True, lstrip_blocks=True)
     template = environment.from_string(template)
     environment.globals.update(zip=zip)
     environment.globals.update(format_path=_get_plot)

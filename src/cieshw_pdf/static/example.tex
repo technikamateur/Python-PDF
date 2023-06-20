@@ -33,7 +33,16 @@ This report has been auto generated.\bigskip
 \section{Compiler Information}
 \begin{itemize}
     {% for key, value in compiler.items() %}
-    \item {{key}}: {{value}}
+        {% if key == "Compilation history" and value %}
+        \item {{key}}
+        \begin{itemize}
+            {% for k, v in value.items() %}
+            \item {{k}}: {{v}}
+            {% endfor %}
+        \end{itemize}
+        {% else %}
+        \item {{key}}: {{value}}
+        {% endif %}
     {% endfor %}
 \end{itemize}
 
@@ -50,17 +59,18 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
     \hline
 \end{tabular}
 
-\resizebox{\textwidth}{!}{\input{ {{repo_graph}} }}
+\resizebox{\textwidth}{!}{\input{ {{-repo_graph-}} }}
 
 \section{Test Results}
     \subsection{Validation}
     {% for key, value in validation.items() %}
-        \subsubsection{ {{ key }} }
+        \subsubsection{ {{-key-}} }
         This commit was created on {{value.get("commit date")}} with message\textit{ {{value.get("commit message")}} }
         {% set distances = value.get("distances to golden algorithm") %}
         {% set tf = value.get("equal to golden algorithm") %}
         {% set sig = value.get("signal types") %}
-        \begin{tabular}{ |l|l|l| }
+
+        \begin{tabular}{|l|l|l|}
             \hline
             Signal & Passed & Distance to golden algorithm \\
             \hline \hline
@@ -70,6 +80,6 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
             \hline
         \end{tabular}
         
-        \resizebox{\textwidth}{!}{\input{ {{format_path(value.get("validation plot"), input)}} }}
+        \resizebox{\textwidth}{!}{\input{ {{-format_path(value.get("validation plot"), input)-}} }}
     {% endfor %}
 \end{document}

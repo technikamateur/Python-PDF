@@ -41,14 +41,18 @@ This report has been auto generated.\bigskip
             {% endfor %}
         \end{itemize}
         {% else %}
+        {% if "file" in key %}
+        \item {{key}}: \path|{{format_path(value, input, is_plot=False)}}|
+        {% else %}
         \item {{key}}: {{value}}
+        {% endif %}
         {% endif %}
     {% endfor %}
 \end{itemize}
 
 \section{Repository Information}
 Repository Name: {{repo.get("Repository name")}}\\
-Repository Path: {{repo.get("Repository directory")}}\bigskip \\
+Repository Path: \path|{{format_path(repo.get("Repository directory"),input,is_plot=False)}}|\bigskip \\
 \begin{tabular}{ |l|l| }
     \hline
     Commit date & Commit message \\
@@ -59,7 +63,7 @@ Repository Path: {{repo.get("Repository directory")}}\bigskip \\
     \hline
 \end{tabular}
 
-\resizebox{\textwidth}{!}{\input{ {{-repo_graph-}} }}
+\resizebox{\textwidth}{!}{\input{ {{-format_path(repo_graph, input)-}} }}
 
 \section{Test Results}
     \subsection{Validation}

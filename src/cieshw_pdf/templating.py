@@ -47,17 +47,17 @@ def _generate_pdf() -> int:
     return 0
 
 
-def _get_plot(plot: str, input: Path) -> str:
-    plot = plot.split("/")[0]
-    plot = plot.rsplit("\\textbackslash ", 1)[1]
-    plot = plot.replace("\\_", "_")
-    plot = plot.replace(".png", ".pgf")
-    plot = input / plot
-    str_plot = str(plot)
-    if isinstance(plot, WindowsPath):
-        logger.info("Windows detected. Masking paths.")
-        str_plot = str_plot.replace("\\", "\\\\")
-    return str_plot
+def _get_plot(plot: str, input: Path, is_plot : bool = True) -> str:
+    if is_plot:
+        plot = plot.split("/")[0]
+        plot = plot.replace("\\_", "_")
+        plot = plot.rsplit("\\", 1)[1]
+        plot = plot.replace(".png", ".pgf")
+        plot = input / plot
+        return (str(plot))
+    else:
+        return plot.replace("\\_", "_")
+
 
 
 def _jinja_magic(input: Path, data: dict) -> None:
@@ -78,7 +78,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
     commitsdate = repo.get("Commits").get("commit dates")
     commitsbranches = repo.get("Commits").get("commit branches")
     commits = _merge_dicts(commitsmsg, commitsdate, commitsbranches)
-    repo_graph = _get_plot(data.get("REPOSITORY INFORMATION").get("Repository graph"), input)
+    repo_graph = repo.get("Repository graph")
     # validation tests
     validation = data.get("TEST RESULTS").get("Validation")
 
@@ -104,7 +104,7 @@ def pdf(input: Path = Path("report")) -> int:
         # data = json.load(json_file)
 
     # parsing backslashs and underscores
-    data = data.replace("\\\\", "\\\\textbackslash ")
+    # data = data.replace("\\\\", "\\\\textbackslash ")
     data = data.replace("_", "\\\\_")
     data = json.loads(data)
     # stop if critical errors is not empty

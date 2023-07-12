@@ -22,8 +22,8 @@ try:
         template = f.read()
 except AttributeError:
     # Python < PY3.9, fall back to method deprecated in PY3.11.
-    template = pkg_resources.read_text(static, 'example.tex')
     logger.warning("Your are using Python <3.9. Using fallback.")
+    template = pkg_resources.read_text(static, 'example.tex')
 
 
 def _merge_dicts(*args: dict) -> dict:
@@ -52,13 +52,20 @@ def _generate_pdf() -> int:
 
 def _get_plot(plot: str, input: Path, is_plot : bool = True) -> str:
     if is_plot:
-        plot = plot.split("/")[0]
+        input = input.as_posix() # latex uses / in paths
         plot = plot.replace("\\_", "_")
-        plot = plot.rsplit("\\", 1)[1]
-        plot = plot.replace(".png", ".pgf")
-        input = input.as_posix() # important for latex, when called from windows
-        plot = input / plot
-        return (str(plot))
+        plot = plot.replace("\\", "/")
+        plot = Path(plot).name # we want only the filename
+        plot = input + "/" + plot
+        plot_pgf = plot + ".pgf"
+        plot_png = plot + ".png"
+
+        if Path(plot_pgf).is_file():
+            return plot_pgf
+        if Path(plot_png).is_file():
+            return plot_png
+        else:
+            return None
     else:
         return plot.replace("\\_", "_")
 
@@ -100,8 +107,13 @@ def pdf(input: Path = Path("report")) -> int:
     if sys.version_info < MIN_PYTHON:
         logger.critical("Python %s.%s or later is required.\n" % MIN_PYTHON)
         return 1
-
-    report_file = input / "report.json"
+    
+    report_file = list(input.glob('*.json'))
+    if len(report_file) != 1:
+        logger.error("Your specified folder contains none or more than one json files.")
+        return 1
+    else:
+        report_file = report_file[0]
 
     with report_file.open("rt") as json_file:
         data = json_file.read()
@@ -111,7 +123,6 @@ def pdf(input: Path = Path("report")) -> int:
     # data = data.replace("\\\\", "\\\\textbackslash ")
     data = data.replace("_", "\\\\_")
     data = json.loads(data)
-    # stop if critical errors is not empty
     if data.get("CRITICAL ERRORS"):
         logger.warning("Critical errors were found:")
         for key, value in data.get("CRITICAL ERRORS").items():

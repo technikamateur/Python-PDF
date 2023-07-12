@@ -1,0 +1,282 @@
+{
+  "CRITICAL ERRORS": {},
+  "REPORT INITIALIZATION DATE": "2023-07-12_15-51-50.85",
+  "SAVE DATA": [
+    "2023-07-12_15-51-56.85",
+    "2023-07-12_15-52-45.33",
+    "2023-07-12_15-53-37.82",
+    "2023-07-12_15-54-06.23",
+    "2023-07-12_15-54-06.23"
+  ],
+  "REPOSITORY INFORMATION": {
+    "Repository name": "CIESHW_SHOW_CASE_8",
+    "Repository directory": "C:\\Users\\ilkay\\Documents\\S32workspaces",
+    "Checkout history": {},
+    "Commits": {
+      "commit messages": {
+        "6ba5d845b3adb81f9ae3a320254e83036bc036ac": "Initial commit",
+        "138b21c3e048f8896c25b153f5ebf3981b8a7c20": "added gitignore",
+        "0be702a0b93d3cbbf10adbcc137ba8627037a0cc": "merge_request authorised",
+        "c250df6ee4c65ad480e9cb0ac557931f8892ab6b": "prepared function filteredFFT",
+        "82548ce6d420f3de10bef331af2498b97d21745a": "implmented DC filtering",
+        "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": "else branch with mean=0;"
+      },
+      "commit dates": {
+        "6ba5d845b3adb81f9ae3a320254e83036bc036ac": "2023-05-31-14-14",
+        "138b21c3e048f8896c25b153f5ebf3981b8a7c20": "2023-05-31-14-14",
+        "0be702a0b93d3cbbf10adbcc137ba8627037a0cc": "2023-05-31-14-15",
+        "c250df6ee4c65ad480e9cb0ac557931f8892ab6b": "2023-05-31-14-21",
+        "82548ce6d420f3de10bef331af2498b97d21745a": "2023-05-31-17-44",
+        "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": "2023-07-07-12-14"
+      },
+      "commit branches": {
+        "6ba5d845b3adb81f9ae3a320254e83036bc036ac": [
+          "origin/master"
+        ],
+        "138b21c3e048f8896c25b153f5ebf3981b8a7c20": [
+          "origin/master"
+        ],
+        "0be702a0b93d3cbbf10adbcc137ba8627037a0cc": [
+          "origin/master"
+        ],
+        "c250df6ee4c65ad480e9cb0ac557931f8892ab6b": [
+          "origin/master"
+        ],
+        "82548ce6d420f3de10bef331af2498b97d21745a": [
+          "origin/master"
+        ],
+        "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": [
+          "origin/master"
+        ]
+      },
+      "branches": [
+        "origin/HEAD",
+        "origin/master"
+      ]
+    },
+    "Repository graph": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-07-12_15-51-50.85\\repository_visualization",
+    "Tags": {
+      "all": [
+        "pull_request",
+        "v2.0"
+      ],
+      "releases": {
+        "v2.0": "0be702a0b93d3cbbf10adbcc137ba8627037a0cc"
+      },
+      "requests": {
+        "pull_request": "272ffc771a01825053b10f97c5e87b2d4b9ff5b8"
+      },
+      "other tags": {},
+      "commits with tag": {
+        "6ba5d845b3adb81f9ae3a320254e83036bc036ac": "",
+        "138b21c3e048f8896c25b153f5ebf3981b8a7c20": "",
+        "0be702a0b93d3cbbf10adbcc137ba8627037a0cc": "v2.0",
+        "c250df6ee4c65ad480e9cb0ac557931f8892ab6b": "",
+        "82548ce6d420f3de10bef331af2498b97d21745a": "",
+        "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": "pull_request"
+      }
+    }
+  },
+  "COMPILER INFORMATION": {
+    "Build command file": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\build\\build_CIESHW_SHOW_CASE_8.cmd",
+    "Output file": "C:\\Users\\ilkay\\Documents\\S32workspaces\\CIESHW_SHOW_CASE_8\\Debug_FLASH\\CIESHW_SHOW_CASE_8.elf",
+    "Compilation history": {
+      "2023-07-12_15-51-57.24": "compiled successfully.",
+      "2023-07-12_15-52-45.67": "compiled successfully.",
+      "2023-07-12_15-53-38.17": "compiled successfully."
+    }
+  },
+  "UDE INTERFACE INFORMATION": {
+    "UDE workspace name": "CIESHW_SHOW_CASE_8_2023-07-12_15-51-50.99.wsx",
+    "UDE workspace location": "C:\\Users\\ilkay\\Documents\\pls\\UDE 2022\\Workspaces",
+    "Target config file": "C:\\Users\\ilkay\\Documents\\pls\\UDE 2022\\Targets\\nxp_s32k3x4evb-q172_s32k344_debug_swd.cfg"
+  },
+  "TEST RESULTS": {
+    "Initialization": {
+      "2023-07-12_15-51-56.85": {
+        "repository analysis": true,
+        "tag search": true,
+        "UDE start": true,
+        "time measurement enabling": true
+      }
+    },
+    "Validation": {
+      "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": {
+        "commit message": "else branch with mean=0;",
+        "commit date": "2023-07-07-12-14",
+        "commit tag": "pull_request",
+        "date": "2023-07-12_15-51-56.86",
+        "iteration": 10,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "validation test passed": true,
+        "error type": "deviation from golden algorithm",
+        "validation plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-07-12_15-51-50.85\\validation_results_pull_request_else branch with mean=0;",
+        "equal to golden algorithm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "distances to golden algorithm": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "signal types": [
+          "impulse",
+          "square",
+          "cos",
+          "cos",
+          "impulse",
+          "cos",
+          "sin",
+          "square",
+          "cos",
+          "sin"
+        ]
+      }
+    },
+    "Timing": {
+      "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": {
+        "commit message": "else branch with mean=0;",
+        "commit date": "2023-07-07-12-14",
+        "commit tag": "pull_request",
+        "date": "2023-07-12_15-53-37.82",
+        "iteration": 10,
+        "maximum excecution time": Infinity,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "timing test passed": true,
+        "error type": "at least one T_i>T_max",
+        "timing plot": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-07-12_15-51-50.85\\timing_results_pull_request_else branch with mean=0;",
+        "mean of excecution time": 0.030414314583333334,
+        "standard deviation of excecution time": 0.0009152759173131173,
+        "single iteration excecution times": [
+          0.0287926875,
+          0.029999104166666665,
+          0.031064958333333333,
+          0.03108075,
+          0.0287755,
+          0.031088291666666667,
+          0.031092125,
+          0.030033791666666667,
+          0.031082895833333332,
+          0.031133041666666667
+        ],
+        "signal types": [
+          "impulse",
+          "square",
+          "cos",
+          "cos",
+          "impulse",
+          "cos",
+          "sin",
+          "square",
+          "cos",
+          "sin"
+        ]
+      }
+    },
+    "Traced Validation": {
+      "272ffc771a01825053b10f97c5e87b2d4b9ff5b8": {
+        "trace config file": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\\\traceConfigs\\filteredFFT_16MB.cfx",
+        "commit message": "else branch with mean=0;",
+        "commit date": "2023-07-07-12-14",
+        "commit tag": "pull_request",
+        "date": "2023-07-12_15-52-45.34",
+        "iteration": 10,
+        "seed": 1337,
+        "moving to commit": true,
+        "compiling program": true,
+        "loading program": true,
+        "setting breakpoint at start of algorithm (FourierTransformation)": true,
+        "setting breakpoint at end of algorithm (EndOfFourierTransformation)": true,
+        "loading trace config (C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\\\traceConfigs\\filteredFFT_16MB.cfx)": true,
+        "everything covered": false,
+        "error type": "deviation from golden algorithm",
+        "code covarege": {
+          "filteredFFT@fourierTransformation.c": {
+            "15_if (stride < N) {": 100,
+            "27_double filteredFFT(double x[SIG_LEN], double Xre[SIG_LEN], double Xim[SIG_LEN], double P[SIG_LEN], double threshold){": 100,
+            "37_for (int i = 0; i < SIG_LEN; i++) {": 100,
+            "38_buf[i] = out[i] = x[i];": 100,
+            "43_for (int n = 0; n < SIG_LEN; n++) {": 100,
+            "44_Xre[n] = creal(buf[n]);": 100,
+            "45_Xim[n] = cimag(buf[n]);": 100,
+            "46_P[n] = Xre[n] * Xre[n] + Xim[n] * Xim[n];": 100,
+            "49_double mean =  Xre[0]/SIG_LEN;": 100,
+            "50_if(fabs(mean) >= threshold){": 100,
+            "51_for (int n = 0; n < SIG_LEN; n++) {": 0,
+            "52_x[n] = x[n] - mean;": 0,
+            "56_mean=0;": 100,
+            "58_return mean;": 100,
+            "59_}": 100
+          }
+        },
+        "code coverage plots": {
+          "filteredFFT@fourierTransformation.c": "C:\\Users\\ilkay\\Documents\\Python Scripts\\cieshw\\CI_runs\\2023-07-12_15-51-50.85\\code_coverage_pull_request_else branch with mean=0;_filteredFFT@fourierTransformation.c"
+        },
+        "equal to golden algorithm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "distances to golden algorithm": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "signal types": [
+          "impulse",
+          "square",
+          "cos",
+          "cos",
+          "impulse",
+          "cos",
+          "sin",
+          "square",
+          "cos",
+          "sin"
+        ]
+      }
+    },
+    "Traced Timing": {}
+  },
+  "TERMINATED SUCCESSFULLY": true
+}

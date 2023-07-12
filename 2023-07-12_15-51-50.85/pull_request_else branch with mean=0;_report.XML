@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="C:\Users\ilkay\Documents\Python Scripts\cieshw\CI_runs\2023-07-12_15-51-50.85\CodeCoverageReport.xsl"?>
+<stg format="2.0">
+	<Header type="key">
+		<Name type="string">Universal Debug Engine</Name>
+		<Version type="string">2022.05</Version>
+		<Date type="string">12.07.2023 15:53:36:000</Date>
+		<Comment type="string">Results from Controller0_CoresightTrace3x4</Comment>
+		<Identifier type="string">AddrTraceCoverageDataStg</Identifier>
+	</Header>
+	<UDE_CodeCoverage_Data_Set_Collection type="key">
+		<CodeCoverage_Data_Set>
+			<Data_Set_Creation_Time>12.07.2023 14:53:36:000</Data_Set_Creation_Time>
+			<Trace_Start_Time>14:52:49:000</Trace_Start_Time>
+			<Trace_Stop_Time>14:53:35:000</Trace_Stop_Time>
+			<Running_Program>C:\Users\ilkay\Documents\S32workspaces\CIESHW_SHOW_CASE_8\Debug_FLASH\CIESHW_SHOW_CASE_8.elf</Running_Program>
+			<Target_Controller>s32k344_m7</Target_Controller>
+			<Coverage_Trace_Source>Controller0_CoresightTrace3x4</Coverage_Trace_Source>
+			<Coverage_Range_Count>1</Coverage_Range_Count>
+			<Coverage_Mode>Branch Coverage Mode</Coverage_Mode>
+			<Coverage_SubMode>Calculate branch coverage from machine code (MCB coverage)</Coverage_SubMode>
+			<Include_Sources>No</Include_Sources>
+			<Function>
+				<Name>filteredFFT</Name>
+				<StartAddress>0x401B00</StartAddress>
+				<RangeLength>0xF4</RangeLength>
+				<SourceName>fourierTransformation.c</SourceName>
+				<SourceModulePath>C:\Users\ilkay\Documents\S32workspaces\CIESHW_SHOW_CASE_8\src\fourierTransformation.c</SourceModulePath>
+				<SourceFiles>
+					<SourceModule>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<SourceModuleName>fourierTransformation.c</SourceModuleName>
+						<SourceModulePath>C:\Users\ilkay\Documents\S32workspaces\CIESHW_SHOW_CASE_8\src\fourierTransformation.c</SourceModulePath>
+						<SourceLineCount>15</SourceLineCount>
+					</SourceModule>
+				</SourceFiles>
+				<SourceLines>
+					<SourceLineCount>15</SourceLineCount>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>15</LineNumber>
+						<SourceLine>if (stride &lt; N) {</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B50</StartAddress>
+							<RangeLength>0xC</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>5</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B50</StartAddress>
+								<Code>MOV R2,#0x1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B52</StartAddress>
+								<Code>MOV R1,R12</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B54</StartAddress>
+								<Code>MOV R0,R5</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B56</StartAddress>
+								<Code>MOV R10,R11</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B58</StartAddress>
+								<Code>BL #0x4019E0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>27</LineNumber>
+						<SourceLine>double filteredFFT(double x[SIG_LEN], double Xre[SIG_LEN], double Xim[SIG_LEN], double P[SIG_LEN], double threshold){</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B00</StartAddress>
+							<RangeLength>0x1A</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B2A</StartAddress>
+							<RangeLength>0x8</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>12</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B00</StartAddress>
+								<Code>PUSH.W {R4-R7,R8-R11,LR}</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B04</StartAddress>
+								<Code>VPUSH.64 {D8}</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B08</StartAddress>
+								<Code>SUB.W SP,SP,#0x1000</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B0C</StartAddress>
+								<Code>MOV R7,R2</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B0E</StartAddress>
+								<Code>MOV R6,R3</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B10</StartAddress>
+								<Code>ADD.W R2,R0,#0x400</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B14</StartAddress>
+								<Code>SUB SP,#0x14</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B16</StartAddress>
+								<Code>MOV R11,R1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B18</StartAddress>
+								<Code>MOV R4,R0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B2A</StartAddress>
+								<Code>MOV R2,R5</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B2C</StartAddress>
+								<Code>MOV R12,R3</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B2E</StartAddress>
+								<Code>VSTR.64 D0, [R13, #+8]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>37</LineNumber>
+						<SourceLine>for (int i = 0; i &lt; SIG_LEN; i++) {</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B00</StartAddress>
+							<RangeLength>0x0</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B36</StartAddress>
+							<RangeLength>0x8</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B4E</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>5</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B36</StartAddress>
+								<Code>LDR R1,[SP,#0x0]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B38</StartAddress>
+								<Code>ADD R2,#0x10</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B3A</StartAddress>
+								<Code>ADD R3,#0x10</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B3C</StartAddress>
+								<Code>CMP R0,R1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B4E</StartAddress>
+								<Code>BNE #0x401B32</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>38</LineNumber>
+						<SourceLine>buf[i] = out[i] = x[i];</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B1A</StartAddress>
+							<RangeLength>0x10</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B32</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B3E</StartAddress>
+							<RangeLength>0x10</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>10</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B1A</StartAddress>
+								<Code>MOV.W R8,#0x0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B1E</StartAddress>
+								<Code>ADD.W R3,SP,#0x810</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B22</StartAddress>
+								<Code>ADD R5,SP,#0x10</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B24</StartAddress>
+								<Code>STR R2,[SP,#0x0]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B26</StartAddress>
+								<Code>MOV.W R9,#0x0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B32</StartAddress>
+								<Code>VLDMIA.64 R0!, D7</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B3E</StartAddress>
+								<Code>VSTR.64 D7, [R3, #-16]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B42</StartAddress>
+								<Code>STRD R8,R9,[R3,#-0x8]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B46</StartAddress>
+								<Code>VSTR.64 D7, [R2, #-16]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B4A</StartAddress>
+								<Code>STRD R8,R9,[R2,#-0x8]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>43</LineNumber>
+						<SourceLine>for (int n = 0; n &lt; SIG_LEN; n++) {</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B5C</StartAddress>
+							<RangeLength>0x6</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B62</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B9C</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BA4</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>6</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B5C</StartAddress>
+								<Code>ADD.W R3,R11,#0x400</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B60</StartAddress>
+								<Code>STR R3,[SP,#0x4]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B62</StartAddress>
+								<Code>ADD R5,#0x10</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B9C</StartAddress>
+								<Code>LDR R3,[SP,#0x4]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B9E</StartAddress>
+								<Code>CMP R10,R3</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BA4</StartAddress>
+								<Code>BNE #0x401B62</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>44</LineNumber>
+						<SourceLine>Xre[n] = creal(buf[n]);</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B62</StartAddress>
+							<RangeLength>0x0</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B68</StartAddress>
+							<RangeLength>0x8</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>2</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B68</StartAddress>
+								<Code>LDRD R2,R3,[R5,#-0x10]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B6C</StartAddress>
+								<Code>STRD R2,R3,[R10]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>45</LineNumber>
+						<SourceLine>Xim[n] = cimag(buf[n]);</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B64</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401B70</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>2</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B64</StartAddress>
+								<Code>LDRD R8,R9,[R5,#-0x8]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B70</StartAddress>
+								<Code>STRD R8,R9,[R7],#+0x8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>46</LineNumber>
+						<SourceLine>P[n] = Xre[n] * Xre[n] + Xim[n] * Xim[n];</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401B74</StartAddress>
+							<RangeLength>0x28</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BA0</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>15</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401B74</StartAddress>
+								<Code>LDRD R2,R3,[R10],#+0x8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B78</StartAddress>
+								<Code>MOV R0,R2</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B7A</StartAddress>
+								<Code>MOV R1,R3</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B7C</StartAddress>
+								<Code>BL #0x40268C</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B80</StartAddress>
+								<Code>MOV R2,R8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B82</StartAddress>
+								<Code>MOV R3,R9</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B84</StartAddress>
+								<Code>VMOV D8, R0, R1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B88</StartAddress>
+								<Code>MOV R0,R8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B8A</StartAddress>
+								<Code>MOV R1,R9</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B8C</StartAddress>
+								<Code>BL #0x40268C</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B90</StartAddress>
+								<Code>MOV R3,R1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B92</StartAddress>
+								<Code>MOV R2,R0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B94</StartAddress>
+								<Code>VMOV R0, R1, D8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401B98</StartAddress>
+								<Code>BL #0x402320</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BA0</StartAddress>
+								<Code>STRD R0,R1,[R6],#+0x8</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>49</LineNumber>
+						<SourceLine>double mean =  Xre[0]/SIG_LEN;</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BA6</StartAddress>
+							<RangeLength>0x10</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BBA</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>6</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BA6</StartAddress>
+								<Code>MOV R2,#0x0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BA8</StartAddress>
+								<Code>MOV.W R3,#0x3F800000</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BAC</StartAddress>
+								<Code>LDRD R0,R1,[R11]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BB0</StartAddress>
+								<Code>BL #0x40268C</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BB4</StartAddress>
+								<Code>MOV R7,R1</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BBA</StartAddress>
+								<Code>MOV R6,R0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>50</LineNumber>
+						<SourceLine>if(fabs(mean) &gt;= threshold){</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BB6</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BBC</StartAddress>
+							<RangeLength>0xA</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>4</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BB6</StartAddress>
+								<Code>BIC R1,R1,#0x80000000</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BBC</StartAddress>
+								<Code>LDRD R2,R3,[SP,#+0x8]</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BC0</StartAddress>
+								<Code>BL #0x402B98</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BC4</StartAddress>
+								<Code>CBZ R0, #0x00401BEE</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>50</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>50</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>1</Instruction_Count>
+							<Instruction>
+								<StartAddress>0x401BC4</StartAddress>
+								<Length>0x2</Length>
+								<JumpType>ConditionalJump</JumpType>
+								<UntakeJumpCount>1</UntakeJumpCount>
+								<NotTakenBranch>
+									<DestinationAddress>0x401BC6</DestinationAddress>
+								</NotTakenBranch>
+							</Instruction>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>51</LineNumber>
+						<SourceLine>for (int n = 0; n &lt; SIG_LEN; n++) {</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BD2</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BD8</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>3</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BD2</StartAddress>
+								<Code>LDR R3,[SP,#0x0]</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BD8</StartAddress>
+								<Code>CMP R4,R3</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BDA</StartAddress>
+								<Code>BNE #0x401BC6</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>0</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>3</Instruction_Count>
+							<Instruction>
+								<StartAddress>0x401BD2</StartAddress>
+								<Length>0x2</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BD8</StartAddress>
+								<Length>0x2</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BDA</StartAddress>
+								<Length>0x2</Length>
+							</Instruction>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>0</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>1</Instruction_Count>
+							<Instruction>
+								<StartAddress>0x401BDA</StartAddress>
+								<Length>0x2</Length>
+								<JumpType>ConditionalJump</JumpType>
+								<UntakeJumpCount>2</UntakeJumpCount>
+								<NotTakenBranch>
+									<DestinationAddress>0x401BC6</DestinationAddress>
+								</NotTakenBranch>
+								<NotTakenBranch>
+									<DestinationAddress>0x401BDC</DestinationAddress>
+								</NotTakenBranch>
+							</Instruction>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>52</LineNumber>
+						<SourceLine>x[n] = x[n] - mean;</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BC6</StartAddress>
+							<RangeLength>0xC</RangeLength>
+						</CodeRange>
+						<CodeRange>
+							<StartAddress>0x401BD4</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>5</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BC6</StartAddress>
+								<Code>MOV R3,R7</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BC8</StartAddress>
+								<Code>MOV R2,R6</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BCA</StartAddress>
+								<Code>LDRD R0,R1,[R4]</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BCE</StartAddress>
+								<Code>BL #0x40231C</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BD4</StartAddress>
+								<Code>STRD R0,R1,[R4],#+0x8</Code>
+								<Coverage_Percent>0</Coverage_Percent>
+								<BranchCoverage_Percent>0</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>0</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>5</Instruction_Count>
+							<Instruction>
+								<StartAddress>0x401BC6</StartAddress>
+								<Length>0x2</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BC8</StartAddress>
+								<Length>0x2</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BCA</StartAddress>
+								<Length>0x4</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BCE</StartAddress>
+								<Length>0x4</Length>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BD4</StartAddress>
+								<Length>0x4</Length>
+							</Instruction>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>0</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>56</LineNumber>
+						<SourceLine>mean=0;</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BEE</StartAddress>
+							<RangeLength>0x4</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>2</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BEE</StartAddress>
+								<Code>MOV R6,#0x0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BF0</StartAddress>
+								<Code>MOV R7,#0x0</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>58</LineNumber>
+						<SourceLine>return mean;</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BF2</StartAddress>
+							<RangeLength>0x2</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>1</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BF2</StartAddress>
+								<Code>B #0x401BDC</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>50</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>50</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>1</Instruction_Count>
+							<Instruction>
+								<StartAddress>0x401BF2</StartAddress>
+								<Length>0x2</Length>
+								<JumpType>ConditionalJump</JumpType>
+								<UntakeJumpCount>1</UntakeJumpCount>
+								<NotTakenBranch>
+									<DestinationAddress>0x401BF4</DestinationAddress>
+								</NotTakenBranch>
+							</Instruction>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+					<Source_Line>
+						<SourceModuleIndex>0</SourceModuleIndex>
+						<LineNumber>59</LineNumber>
+						<SourceLine>}</SourceLine>
+						<CodeRange>
+							<StartAddress>0x401BDC</StartAddress>
+							<RangeLength>0x12</RangeLength>
+						</CodeRange>
+						<Instructions>
+							<InstructionCount>5</InstructionCount>
+							<Instruction>
+								<StartAddress>0x401BDC</StartAddress>
+								<Code>VMOV D0, R6, R7</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BE0</StartAddress>
+								<Code>ADD.W SP,SP,#0x1000</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BE4</StartAddress>
+								<Code>ADD SP,#0x14</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BE6</StartAddress>
+								<Code>VPOP.64 {D8}</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+							<Instruction>
+								<StartAddress>0x401BEA</StartAddress>
+								<Code>POP.W {R4-R7,R8-R11,PC}</Code>
+								<Coverage_Percent>100</Coverage_Percent>
+								<BranchCoverage_Percent>100</BranchCoverage_Percent>
+							</Instruction>
+						</Instructions>
+						<TotalCoverage_Percent>100</TotalCoverage_Percent>
+						<Unreached_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</Unreached_Instructions>
+						<TotalBranchCoverage_Percent>100</TotalBranchCoverage_Percent>
+						<UncompleteCovered_Instructions>
+							<Instruction_Count>0</Instruction_Count>
+						</UncompleteCovered_Instructions>
+					</Source_Line>
+				</SourceLines>
+				<TotalCoverage_Percent>90</TotalCoverage_Percent>
+				<Unreached_Instructions>
+					<Instruction_Count>8</Instruction_Count>
+					<Instruction>
+						<StartAddress>0x401BD2</StartAddress>
+						<Length>0x2</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BD8</StartAddress>
+						<Length>0x2</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BDA</StartAddress>
+						<Length>0x2</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BC6</StartAddress>
+						<Length>0x2</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BC8</StartAddress>
+						<Length>0x2</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BCA</StartAddress>
+						<Length>0x4</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BCE</StartAddress>
+						<Length>0x4</Length>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BD4</StartAddress>
+						<Length>0x4</Length>
+					</Instruction>
+				</Unreached_Instructions>
+				<TotalBranchCoverage_Percent>60</TotalBranchCoverage_Percent>
+				<BranchCoverage_Warning>Required compiler control flow information not available!</BranchCoverage_Warning>
+				<UncompleteCovered_Instructions>
+					<Instruction_Count>3</Instruction_Count>
+					<Instruction>
+						<StartAddress>0x401BC4</StartAddress>
+						<Length>0x2</Length>
+						<JumpType>ConditionalJump</JumpType>
+						<UntakeJumpCount>1</UntakeJumpCount>
+						<NotTakenBranch>
+							<DestinationAddress>0x401BC6</DestinationAddress>
+						</NotTakenBranch>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BDA</StartAddress>
+						<Length>0x2</Length>
+						<JumpType>ConditionalJump</JumpType>
+						<UntakeJumpCount>2</UntakeJumpCount>
+						<NotTakenBranch>
+							<DestinationAddress>0x401BC6</DestinationAddress>
+						</NotTakenBranch>
+						<NotTakenBranch>
+							<DestinationAddress>0x401BDC</DestinationAddress>
+						</NotTakenBranch>
+					</Instruction>
+					<Instruction>
+						<StartAddress>0x401BF2</StartAddress>
+						<Length>0x2</Length>
+						<JumpType>ConditionalJump</JumpType>
+						<UntakeJumpCount>1</UntakeJumpCount>
+						<NotTakenBranch>
+							<DestinationAddress>0x401BF4</DestinationAddress>
+						</NotTakenBranch>
+					</Instruction>
+				</UncompleteCovered_Instructions>
+			</Function>
+		</CodeCoverage_Data_Set>
+	</UDE_CodeCoverage_Data_Set_Collection>
+</stg>

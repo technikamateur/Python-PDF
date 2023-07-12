@@ -1,3 +1,9 @@
+{% macro figure(path) -%}
+\begin{figure}
+    \centering
+    \input{ {{-path-}} }
+\end{figure}
+{%- endmacro %}
 \documentclass{article}
 
 % Language setting
@@ -70,10 +76,7 @@ Repository Path: \path|{{format_path(repo.get("Repository directory"),input,is_p
     \hline
 \end{tabular}
 
-\begin{figure}
-    \centering
-    \input{ {{-format_path(repo_graph, input)-}} }
-\end{figure}
+{{ figure(format_path(repo_graph, input)) }}
 
  %   \resizebox{\textwidth}{!}{\input{ {{-format_path(repo_graph, input)-}} }}
 
@@ -96,9 +99,6 @@ Repository Path: \path|{{format_path(repo.get("Repository directory"),input,is_p
             \hline
         \end{tabular}
         
-        \begin{figure}
-            \centering
-            \input{ {{-format_path(value.get("validation plot"), input)-}} }
-        \end{figure}
+        {{ figure(format_path(value.get("validation plot"), input)) }}
     {% endfor %}
 \end{document}

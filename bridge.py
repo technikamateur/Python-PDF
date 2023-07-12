@@ -1,6 +1,9 @@
 from src.cieshw_pdf import templating
+from pathlib import Path
 
-ret = templating.pdf()
+path = Path("2023-07-12_15-51-50.85")
+
+ret = templating.pdf(path)
 print(f"templating returned: {ret}")
 
 '''

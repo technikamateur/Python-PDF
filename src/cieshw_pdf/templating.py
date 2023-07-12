@@ -37,9 +37,12 @@ def _merge_dicts(*args: dict) -> dict:
 def _generate_pdf() -> int:
     if Path("out.tex").is_file():
         try:
-            subprocess.run(["pdflatex", "out.tex"])
+            subprocess.run(["pdflatex", "out.tex"], timeout=10)
         except FileNotFoundError:
             logger.error("pdflatex not found. No pdf created.")
+            return 1
+        except subprocess.TimeoutExpired:
+            logger.error("pdflatex timed out. No pdf created.")
             return 1
     else:
         logger.error("Internal error. No tex file found.")
@@ -53,6 +56,7 @@ def _get_plot(plot: str, input: Path, is_plot : bool = True) -> str:
         plot = plot.replace("\\_", "_")
         plot = plot.rsplit("\\", 1)[1]
         plot = plot.replace(".png", ".pgf")
+        input = input.as_posix() # important for latex, when called from windows
         plot = input / plot
         return (str(plot))
     else:

@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 setup(
     name='cieshw_pdf',
-    version='1.2',
+    version='1.3',
     description='This package can generate pdf reports from cieshw json files.',
     author='Daniel Körsten',
     python_requires='>=3.7',

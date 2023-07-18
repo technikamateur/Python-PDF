@@ -1,6 +1,6 @@
 {% macro figure(path) -%}
 {% if path.endswith('.pgf') %}
-\begin{figure}
+\begin{figure}[H]
     \centering
     \input{ {{-path-}} }
 \end{figure}
@@ -85,27 +85,65 @@ Repository Path: \path|{{format_path(repo.get("Repository directory"),input,is_p
 
 {{ figure(format_path(repo_graph, input)) }}
 
- %   \resizebox{\textwidth}{!}{\input{ {{-format_path(repo_graph, input)-}} }}
-
+\newpage
 \section{Test Results}
-    \subsection{Validation}
-    {% for key, value in validation.items() %}
-        \subsubsection{ {{-key-}} }
-        This commit was created on {{value.get("commit date")}} with message\textit{ {{-value.get("commit message")-}} }
-        {% set distances = value.get("distances to golden algorithm") %}
-        {% set tf = value.get("equal to golden algorithm") %}
-        {% set sig = value.get("signal types") %}
-
-        \begin{tabular}{|l|l|l|}
-            \hline
-            Signal & Passed & Distance to golden algorithm \\
-            \hline \hline
-            {% for s,t,d in zip(sig, tf, distances) %}
-            {{s}} & {{t}} & {{d}} \\
-            {% endfor %}
-            \hline
-        \end{tabular}
-        
-        {{ figure(format_path(value.get("validation plot"), input)) }}
+\subsection{Validation}
+{% if tests["Validation"] is not none %}
+    {% for key, value in tests["Validation"].items() %}
+    \subsubsection{ {{-key-}} }
+    This commit was created on {{value.get("commit date")}} with message \textit{ {{-value.get("commit message")-}} }\\
+    {% if value.get("validation test passed") %}
+    \textbf{The validation test completed successfully.}\bigskip \\
+    {% else %}
+    \textbf{The validation test failed.}\bigskip \\
+    {% endif %}
+    {% set distances = value.get("distances to golden algorithm") %}
+    {% set tf = value.get("equal to golden algorithm") %}
+    {% set sig = value.get("signal types") %}
+    \begin{tabular}{|l|l|l|}
+        \hline
+        Signal & Passed & Distance to golden algorithm \\
+        \hline \hline
+        {% for s,t,d in zip(sig, tf, distances) %}
+        {{s}} & {{t}} & {{d}} \\
+        {% endfor %}
+        \hline
+    \end{tabular}
+    
+    {{ figure(format_path(value.get("validation plot"), input)) }}
     {% endfor %}
+{% else %}
+    No data available.
+{% endif %}
+\newpage
+\subsection{Timing}
+{% if tests["Timing"] is not none %}
+    {% for key, value in tests["Timing"].items() %}
+    \subsubsection{ {{-key-}} }
+    This commit was created on {{value.get("commit date")}} with message \textit{ {{-value.get("commit message")-}} }\\
+    {% if value.get("timing test passed") %}
+    \textbf{The timing test completed successfully.}\bigskip \\
+    {% else %}
+    \textbf{The timing test failed.}\bigskip \\
+    {% endif %}
+    {{ figure(format_path(value.get("timing plot"), input)) }}
+    {% endfor %}
+{% else %}
+    No data available.
+{% endif %}
+\newpage
+\subsection{Traced Validation}
+{% if tests["Traced Validation"] is not none %}
+    {% for key, value in tests["Traced Validation"].items() %}
+    \subsubsection{ {{-key-}} }
+    This commit was created on {{value.get("commit date")}} with message \textit{ {{-value.get("commit message")-}} }\\
+    {% if value.get("everything covered") %}
+    \textbf{Everthing is covered.}\bigskip \\
+    {% else %}
+    \textbf{Uncovered code found.}\bigskip \\
+    {% endif %}
+    {% endfor %}
+{% else %}
+    No data available.
+{% endif %}
 \end{document}

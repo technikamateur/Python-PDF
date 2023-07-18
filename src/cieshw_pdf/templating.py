@@ -50,12 +50,12 @@ def _generate_pdf() -> int:
     return 0
 
 
-def _get_plot(plot: str, input: Path, is_plot : bool = True) -> str:
+def _get_plot(plot: str, input: Path, is_plot: bool = True) -> str:
     if is_plot:
-        input = input.as_posix() # latex uses / in paths
+        input = input.as_posix()  # latex uses / in paths
         plot = plot.replace("\\_", "_")
         plot = plot.replace("\\", "/")
-        plot = Path(plot).name # we want only the filename
+        plot = Path(plot).name  # we want only the filename
         plot = input + "/" + plot
         plot_pgf = plot + ".pgf"
         plot_png = plot + ".png"
@@ -70,10 +70,9 @@ def _get_plot(plot: str, input: Path, is_plot : bool = True) -> str:
         return plot.replace("\\_", "_")
 
 
-
 def _jinja_magic(input: Path, data: dict) -> None:
     global template
-    environment = Environment(trim_blocks=True, lstrip_blocks=True)
+    environment = Environment(trim_blocks=True, lstrip_blocks=True,extensions=['jinja2.ext.loopcontrols'])
     template = environment.from_string(template)
     environment.globals.update(zip=zip)
     environment.globals.update(format_path=_get_plot)
@@ -90,11 +89,17 @@ def _jinja_magic(input: Path, data: dict) -> None:
     commitsbranches = repo.get("Commits").get("commit branches")
     commits = _merge_dicts(commitsmsg, commitsdate, commitsbranches)
     repo_graph = repo.get("Repository graph")
-    # validation tests
-    validation = data.get("TEST RESULTS").get("Validation")
+    # test results
+    tests = dict()
+    tests["Validation"] = data.get("TEST RESULTS").get("Validation")
+    tests["Timing"] = data.get("TEST RESULTS").get("Timing")
+    tests["Traced Validation"] = data.get("TEST RESULTS").get("Traced Validation")
+    for k,v in tests.items():
+        if v is None:
+            logger.info(f"Your json file doesn\'t provide any information about {k}.")
 
     # render template
-    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, validation=validation, repo_graph=repo_graph, input=input)
+    content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, tests=tests, repo_graph=repo_graph, input=input)
 
     # write to file
     with open("out.tex", "wt") as out_file:
@@ -107,7 +112,7 @@ def pdf(input: Path = Path("report")) -> int:
     if sys.version_info < MIN_PYTHON:
         logger.critical("Python %s.%s or later is required.\n" % MIN_PYTHON)
         return 1
-    
+
     report_file = list(input.glob('*.json'))
     if len(report_file) != 1:
         logger.error("Your specified folder contains none or more than one json files.")
@@ -128,7 +133,7 @@ def pdf(input: Path = Path("report")) -> int:
         for key, value in data.get("CRITICAL ERRORS").items():
             print(f"{key}:{value}")
 
-    logger.info(f"Keys: {data.keys()}")
+    logger.debug(f"Keys: {data.keys()}")
 
     _jinja_magic(input, data)
 

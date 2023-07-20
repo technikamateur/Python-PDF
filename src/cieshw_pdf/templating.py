@@ -16,6 +16,8 @@ FORMAT = '%(name)s: %(levelname)s: %(message)s'
 logger = logging.getLogger(__name__)
 logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
+latex_tmp_files = ["report.aux", "report.log", "report.out", "report.tex", "report.toc"]
+
 try:
     inp_file = (pkg_resources.files(static) / 'example.tex')
     with inp_file.open("rt") as f:  # or "rt" as text file with universal newlines
@@ -35,9 +37,9 @@ def _merge_dicts(*args: dict) -> dict:
 
 
 def _generate_pdf() -> int:
-    if Path("out.tex").is_file():
+    if Path("report.tex").is_file():
         try:
-            subprocess.run(["pdflatex", "out.tex"], timeout=10)
+            subprocess.run(["pdflatex", "report.tex"], timeout=10)
         except FileNotFoundError:
             logger.error("pdflatex not found. No pdf created.")
             return 1
@@ -47,6 +49,9 @@ def _generate_pdf() -> int:
     else:
         logger.error("Internal error. No tex file found.")
         return 1
+    for file in latex_tmp_files:
+        Path.unlink(file, missing_ok=True)
+    logger.debug("cleanup completed.")
     return 0
 
 
@@ -102,7 +107,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
     content = template.render(compiler=compiler, date=date, commits=commits, repo=repo, tests=tests, repo_graph=repo_graph, input=input)
 
     # write to file
-    with open("out.tex", "wt") as out_file:
+    with open("report.tex", "wt") as out_file:
         out_file.write(content)
     return
 

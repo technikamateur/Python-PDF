@@ -36,21 +36,27 @@ def _merge_dicts(*args: dict) -> dict:
     return dd
 
 
-def _generate_pdf() -> int:
+def _generate_pdf(out: Path) -> int:
     if Path("report.tex").is_file():
         try:
-            subprocess.run(["pdflatex", "report.tex"], timeout=10)
-        except FileNotFoundError:
-            logger.error("pdflatex not found. No pdf created.")
+            if out is None:
+                subprocess.run(["pdflatex", "-interaction=nonstopmode", "report.tex"], check=True)
+            else:
+                subprocess.run(["pdflatex", f"-output-directory={out}", "-interaction=nonstopmode", "report.tex"], check=True)
+        except FileNotFoundError as e:
+            logger.error(e)
             return 1
-        except subprocess.TimeoutExpired:
-            logger.error("pdflatex timed out. No pdf created.")
+        except subprocess.CalledProcessError as e:
+            logger.error(e)
             return 1
     else:
-        logger.error("Internal error. No tex file found.")
+        logger.error("Internal error. No tex file produced by jinja.")
         return 1
     for file in latex_tmp_files:
-        Path.unlink(file, missing_ok=True)
+        if out is None:
+            Path.unlink(file, missing_ok=True)
+        else:
+            Path.unlink(out / file, missing_ok=True)
     logger.debug("cleanup completed.")
     return 0
 
@@ -77,7 +83,7 @@ def _get_plot(plot: str, input: Path, is_plot: bool = True) -> str:
 
 def _jinja_magic(input: Path, data: dict) -> None:
     global template
-    environment = Environment(trim_blocks=True, lstrip_blocks=True,extensions=['jinja2.ext.loopcontrols'])
+    environment = Environment(trim_blocks=True, lstrip_blocks=True, extensions=['jinja2.ext.loopcontrols'])
     template = environment.from_string(template)
     environment.globals.update(zip=zip)
     environment.globals.update(format_path=_get_plot)
@@ -99,7 +105,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
     tests["Validation"] = data.get("TEST RESULTS").get("Validation")
     tests["Timing"] = data.get("TEST RESULTS").get("Timing")
     tests["Traced Validation"] = data.get("TEST RESULTS").get("Traced Validation")
-    for k,v in tests.items():
+    for k, v in tests.items():
         if v is None:
             logger.info(f"Your json file doesn\'t provide any information about {k}.")
 
@@ -112,7 +118,7 @@ def _jinja_magic(input: Path, data: dict) -> None:
     return
 
 
-def pdf(input: Path = Path("report")) -> int:
+def pdf(input: Path, output: Path = None) -> int:
     MIN_PYTHON = (3, 7)  # 3.6 for format strings, 3.7 for pkg_resources
     if sys.version_info < MIN_PYTHON:
         logger.critical("Python %s.%s or later is required.\n" % MIN_PYTHON)
@@ -142,4 +148,4 @@ def pdf(input: Path = Path("report")) -> int:
 
     _jinja_magic(input, data)
 
-    return _generate_pdf()
+    return _generate_pdf(output)

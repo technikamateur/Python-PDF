@@ -142,6 +142,9 @@ Repository Path: \path|{{format_path(repo.get("Repository directory"),input,is_p
     {% else %}
     \textbf{Uncovered code found.}\bigskip \\
     {% endif %}
+    {% for plot in value.get("code coverage plots").values() %}
+    {{ figure(format_path(plot, input)) }}
+    {% endfor %}
     {% endfor %}
 {% else %}
     No data available.
